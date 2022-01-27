@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Employee-CRUD" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/git@github.com:Nouman-Python-Developer/Employee-CRUD.git" vcs="Git" />
   </component>
 </project>
