@@ -26,9 +26,25 @@ class MainPageView(View):
 
 
 class DeleteEmployeeView(View):
-    def post(self, request, id):
+    def get(self, request, id):
         employee_obj = Employee.objects.get(id=id)
         employee_obj.delete()
         url = reverse("main-page")
         return HttpResponseRedirect(url)
 
+
+class UpdateEmployeeView(View):
+
+    def get(self, request, id):
+        employee_obj = Employee.objects.get(id=id)
+        return render(request, 'update.html', context={'employee': employee_obj})
+
+    def post(self, request, id):
+        employee_obj = Employee.objects.get(id=id)
+        employee_obj.name = request.POST.get('name')
+        employee_obj.email = request.POST.get('email')
+        employee_obj.address = request.POST.get('address')
+        employee_obj.phone = request.POST.get('phone')
+        employee_obj.save()
+        url = reverse("main-page")
+        return HttpResponseRedirect(url)
